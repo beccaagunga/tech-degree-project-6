@@ -97,7 +97,9 @@ keyboard.addEventListener('click', (event) => {
   if (event.target.tagName === 'BUTTON') {
       event.target.className = 'chosen';
       event.target.disabled = true;
-    }
+    } else {
+     return;
+     }
 
 // Remove a heart for wrong click
   if (letterFound === false && missed < 5) {
