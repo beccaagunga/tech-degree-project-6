@@ -52,20 +52,22 @@ function addPhraseToDisplay(arr) {
   }
 }
 
-const phraseArray = getRandomPhraseArray(phrases);
-addPhraseToDisplay(phraseArray);
+  const phraseArray = getRandomPhraseArray(phrases);
+  addPhraseToDisplay(phraseArray);
 
 // Get all elements with class of 'letter'
 function checkLetter(buttons) {
   let check = false;
+
 // Loop over the letters and check if they match the letter in the button the player has chosen.
   for (i = 0; i < letters.length; i+=1) {
 //If match, add the “show” class to the list item containing that letter,
-    if (buttons.textContent === letters[i].textContent.toLowerCase()) {
+  if (buttons.textContent === letters[i].textContent.toLowerCase()) {
       check = true;
       letters[i].classList.add('show');
     }
   }
+
 // Store the matching letter inside of a variable, and return that letter.
   return check;
 }
@@ -86,28 +88,28 @@ function checkWin() {
       overlay.classList.add('win');
       title.innerHTML= 'You won! Play Again?';
       startGameBtn.textContent = 'Play Again';
-        }
+      }
     }
-
 
 //  When a player chooses a letter, add the “chosen” class to that button so the same letter can’t be chosen twice.
 keyboard.addEventListener('click', (event) => {
-const letterFound = checkLetter(event.target);
+  const letterFound = checkLetter(event.target);
   if (event.target.tagName === 'BUTTON') {
       event.target.className = 'chosen';
       event.target.disabled = true;
-
     }
+
 // Remove a heart for wrong click
-    if (letterFound === false && missed < 5) {
-      heart[missed].setAttribute('src', 'images/lostHeart.png');
-   			missed++;
+  if (letterFound === false && missed < 5) {
+    heart[missed].setAttribute('src', 'images/lostHeart.png');
+   	missed++;
       }
+
 // Reload game from 'win' or 'loss' screen
-      startGameBtn.addEventListener('click', () => {
-        if (startGameBtn.innerHTML === 'Play Again' || 'Try Again') {
-            location.reload();
-          }
+  startGameBtn.addEventListener('click', () => {
+    if (startGameBtn.innerHTML === 'Play Again' || 'Try Again') {
+    location.reload();
+  }
 });
     checkWin();
 });
