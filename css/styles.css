@@ -4,16 +4,18 @@
 /* Variables */
 
 :root {
-  --color-win: #78CF82;
+  --color-win: #62b96c;
   --color-lose: #D94545;
-  --color-start: #5b85b7;
+  --color-start: #BF9F34;
   --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
+  --color-body: rgb(224, 112, 77);
+  --color-neutral-light: #ffffff;
   --color-keys: #37474F;
-  --color-keys-light: #E5E5E5;
+  --color-keys-light: #ffffff;
   --font-size-large: 60px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
+  --transitionShow: all .8s ease-in-out; /* added for 'exceeds expectations' */
 }
 
 /* main */
@@ -27,6 +29,7 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
+  background-color: var(--color-body);
 }
 
 li, ol, ul {
@@ -95,6 +98,7 @@ button {
 .show {
   color: #000;
   background-color: #76CE82;
+  transition: var(--transitionShow);  /* added for 'exceeds expectations' */
 }
 
 /* Keyboard */
